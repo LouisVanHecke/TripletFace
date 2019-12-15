@@ -32,12 +32,12 @@ Une autre possibilité aurait été d'utiliser des modéles présent dans d'autr
 
 ## Entrainement
 
-N'ayant pas réussi à utiliser le réseau de neurones par la suite il était compliqué d'observer quels hyperparamètres étaient les plus intéresant à modifier. L'entrainement que je suppose étre le plus performant est celui réalisé en modifiant le nombre d'epoch à 4 et un learning rate de 2e-3
+N'ayant pas réussi à utiliser le réseau de neurones par la suite il était compliqué d'observer quels hyperparamètres étaient les plus intéresant à modifier. L'entrainement que je suppose étre le plus performant est celui réalisé en modifiant le nombre d'epoch à 3.
 
-J'ai obtenu le résultat suivant pour l'epoch 4:
-![vizualisation_3.png](vizualisation_3.png)
+J'ai obtenu le résultat suivant pour l'epoch 3:
+![vizualisation_2.png](vizualisation_2.png)
 
-J'ai enregistré les résultats des epoch sur mon drive au lien suivant: [GDrive](https://drive.google.com/drive/folders/1uhcJnDf9cjC4W0W6JNjokWk4sISk1wDs?usp=sharing)
+J'ai enregistré les résultats des epoch sur mon drive au lien suivant: [GDrive](https://drive.google.com/drive/folders/1n_D_4j_7J_nvkN7xm9Q6vDskv3OCYEBt?usp=sharing)
 
 ## Jit Compile
 
@@ -48,7 +48,7 @@ import torch.nn as nn
 from tripletface.core.model import Encoder
 
 model = Encoder(64)
-weigths = torch.load("/content/drive/My Drive/modelResnet152V7/model.pt")['model']
+weigths = torch.load("/content/drive/My Drive/modelResnet152V6/model.pt")['model']
 model.load_state_dict(weigths)
 jit_model = torch.jit.trace(model, torch.rand(64, 3, 7, 7))
 torch.jit.save(jit_model, "jitmodel.pt")
